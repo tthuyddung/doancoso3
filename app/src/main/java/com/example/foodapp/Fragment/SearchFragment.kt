@@ -10,25 +10,22 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.foodapp.R
 import com.example.foodapp.adapter.MenuAdapter
 import com.example.foodapp.databinding.FragmentSearchBinding
+import com.example.foodapp.model.MenuItem
 
 class SearchFragment : Fragment() {
     private lateinit var binding: FragmentSearchBinding
     private lateinit var adapter: MenuAdapter
 
-    private val originalFoodName = listOf("Burger", "Sanwich", "momo", "item", "Fried chicken", "French fries")
-    private val originalMenuItemPrice = listOf("$5", "$6", "$7", "$9", "$10", "$8")
-    private val originalImage = listOf(
-        R.drawable.menu1,
-        R.drawable.menu2,
-        R.drawable.menu3,
-        R.drawable.menu4,
-        R.drawable.menu5,
-        R.drawable.menu6
+    private val originalMenuItems = listOf(
+        MenuItem("Burger", "$5", R.drawable.menu1.toString()),
+        MenuItem("Sanwich", "$6", R.drawable.menu2.toString()),
+        MenuItem("Momo", "$7", R.drawable.menu3.toString()),
+        MenuItem("Item", "$9", R.drawable.menu4.toString()),
+        MenuItem("Fried chicken", "$10", R.drawable.menu5.toString()),
+        MenuItem("French fries", "$8", R.drawable.menu6.toString())
     )
 
-    private val filteredMenuFoodName = mutableListOf<String>()
-    private val filteredMenuItemPrice = mutableListOf<String>()
-    private val filteredMenuImage = mutableListOf<Int>()
+    private val filteredMenuItems = mutableListOf<MenuItem>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +37,7 @@ class SearchFragment : Fragment() {
     ): View? {
         binding = FragmentSearchBinding.inflate(inflater, container, false)
 
-        adapter = MenuAdapter(filteredMenuFoodName, filteredMenuItemPrice, filteredMenuImage, requireContext())
+        adapter = MenuAdapter(filteredMenuItems)
 
         binding.menuRecycleView.layoutManager = LinearLayoutManager(requireContext())
         binding.menuRecycleView.adapter = adapter
@@ -52,14 +49,8 @@ class SearchFragment : Fragment() {
     }
 
     private fun showAllMenu() {
-        filteredMenuFoodName.clear()
-        filteredMenuItemPrice.clear()
-        filteredMenuImage.clear()
-
-        filteredMenuFoodName.addAll(originalFoodName)
-        filteredMenuItemPrice.addAll(originalMenuItemPrice)
-        filteredMenuImage.addAll(originalImage)
-
+        filteredMenuItems.clear()
+        filteredMenuItems.addAll(originalMenuItems)
         adapter.notifyDataSetChanged()
     }
 
@@ -78,22 +69,14 @@ class SearchFragment : Fragment() {
     }
 
     private fun filterMenuItems(query: String?) {
-        filteredMenuFoodName.clear()
-        filteredMenuItemPrice.clear()
-        filteredMenuImage.clear()
+        filteredMenuItems.clear()
 
         if (query.isNullOrEmpty()) {
-            // Nếu ô tìm kiếm rỗng -> Hiện tất cả món ăn
-            filteredMenuFoodName.addAll(originalFoodName)
-            filteredMenuItemPrice.addAll(originalMenuItemPrice)
-            filteredMenuImage.addAll(originalImage)
+            filteredMenuItems.addAll(originalMenuItems)
         } else {
-            // Lọc dữ liệu theo từ khóa
-            originalFoodName.forEachIndexed { index, foodName ->
-                if (foodName.contains(query, ignoreCase = true)) {
-                    filteredMenuFoodName.add(foodName)
-                    filteredMenuItemPrice.add(originalMenuItemPrice[index])
-                    filteredMenuImage.add(originalImage[index])
+            originalMenuItems.forEach { item ->
+                if (item.food_name.contains(query, ignoreCase = true)) {
+                    filteredMenuItems.add(item)
                 }
             }
         }
@@ -101,6 +84,5 @@ class SearchFragment : Fragment() {
     }
 
     companion object {
-        // Bạn có thể thêm các hàm static trong này nếu cần sau này
     }
 }

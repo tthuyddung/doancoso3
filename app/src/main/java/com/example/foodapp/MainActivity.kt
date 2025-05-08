@@ -1,5 +1,6 @@
 package com.example.foodapp
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
@@ -25,6 +26,12 @@ class MainActivity : AppCompatActivity() {
         binding.notificationButton.setOnClickListener {
             val bottomSheetDialog = Notifation_Bottom_Fragment()
             bottomSheetDialog.show(supportFragmentManager, "Test")
+
         }
+        binding.buttonSign.setOnClickListener {
+            startActivity(Intent(this, SignActivity::class.java))
+        }
+
     }
+
 }

@@ -1,56 +1,55 @@
 package com.example.foodapp.adapter
 
-import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
-import android.view.View.OnClickListener
+import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.foodapp.DetailsActivity
-import com.example.foodapp.databinding.MenuItemBinding
+import com.example.foodapp.R
+import com.example.foodapp.model.MenuItem
 
 class MenuAdapter(
-    private val menuItemsName: List<String>,
-    private val menuItemPrice: List<String>,
-    private val menuImages: List<Int>,
-    private val requireContext : Context
-) : RecyclerView.Adapter<MenuAdapter.MenuViewHolder>() {
-    private val itemClickListener : OnClickListener ?= null
+    private val menuList: List<MenuItem>
+) : RecyclerView.Adapter<MenuAdapter.ViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MenuViewHolder {
-        val binding = MenuItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return MenuViewHolder(binding)
-    }
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        private val foodName: TextView = itemView.findViewById(R.id.menuFoodname)
+        private val price: TextView = itemView.findViewById(R.id.menuPrice)
+        private val image: ImageView = itemView.findViewById(R.id.imageMenu)
 
-    override fun onBindViewHolder(holder: MenuViewHolder, position: Int) {
-        holder.bind(position)
-    }
+        fun bind(item: MenuItem) {
+            foodName.text = item.food_name
+            price.text = item.price
 
-    override fun getItemCount(): Int = menuItemsName.size
+            Glide.with(itemView.context)
+                .load(item.image_url)
+                .into(image)
 
-    inner class MenuViewHolder(private val binding: MenuItemBinding) : RecyclerView.ViewHolder(binding.root) {
-        init{
-            binding.root.setOnClickListener{
-                val position = adapterPosition
-                if(position != RecyclerView.NO_POSITION){
-                    itemClickListener?.onItemClick(position)
+            itemView.setOnClickListener {
+                val context = itemView.context
+                val intent = Intent(context, DetailsActivity::class.java).apply {
+                    putExtra("MenuItemName", item.food_name)
+                    putExtra("MenuItemImageUrl", item.image_url)
+                    putExtra("MenuItemPrice", item.price)
                 }
-                val intent = Intent(requireContext, DetailsActivity::class.java)
-                intent.putExtra("MenuItemName", menuItemsName.get(position))
-                intent.putExtra("MenuItemImage", menuImages.get(position))
-                requireContext.startActivity(intent)
-            }
-        }
-        fun bind(position: Int) {
-            binding.apply {
-                menuFoodname.text = menuItemsName[position]
-                menuPrice.text = menuItemPrice[position]
-                imageMenu.setImageResource(menuImages[position])
-
+                context.startActivity(intent)
             }
         }
     }
-    interface OnClickListener{
-        fun onItemClick(position: Int)
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.menu_item, parent, false)
+        return ViewHolder(view)
+    }
+
+    override fun getItemCount(): Int = menuList.size
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.bind(menuList[position])
     }
 }
