@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/testFragmentContainer"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:navGraph="@navigation/nav_graph"
+        app:defaultNavHost="true"
+        app:layout_constraintTop_toBottomOf="@id/marqueeText"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+
+
+    <TextView
+        android:id="@+id/marqueeText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:scrollHorizontally="true"
+        android:text="🍜 Ưu đãi đặc biệt hôm nay: Mua 1 tặng 1 tất cả món Phở! 🍜"
+        android:textSize="16sp"
+        android:textColor="#FF5722"
+        android:background="#FFFDE7"
+        android:padding="8dp"
+        android:textStyle="bold" />
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        app:menu="@menu/menu"
+        app:labelVisibilityMode="labeled"
+        app:itemIconTint="@null"
+        app:elevation="10dp"
+        android:background="@drawable/profileedittext"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:itemPaddingTop="12dp"
+        app:itemIconSize="28dp"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

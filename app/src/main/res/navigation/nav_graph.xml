@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.foodapp.Fragment.HomeFragment"
+        android:label="Home" />
+
+    <fragment
+        android:id="@+id/cardFragment"
+        android:name="com.example.foodapp.Fragment.CardFragment"
+        android:label="Card" />
+
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.foodapp.Fragment.SearchFragment"
+        android:label="Search" />
+
+
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.example.foodapp.Fragment.HistoryFragment"
+        android:label="History" />
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.foodapp.Fragment.ProfileFragment"
+        android:label="Profile" />
+
+</navigation>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="15dp">
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="428dp"
+        android:layout_height="265dp"
+        android:background="@drawable/edittextshape"
+        android:src="@drawable/bgbg"
+        tools:layout_editor_absoluteX="-5dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="serif"
+        android:gravity="center"
+        android:text="Đăng nhập"
+        android:textColor="@color/colorPrimary"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+
+    <EditText
+        android:id="@+id/editTextEmail"
+        android:layout_width="270dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/edittext_background"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:paddingStart="10dp"
+        android:textColor="@color/cardview_dark_background"
+        android:textColorHint="#CCCCCC"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="270dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/edittext_background"
+        android:ems="10"
+        android:hint="Mật khẩu"
+        android:inputType="textPassword"
+        android:paddingStart="10dp"
+        android:textColor="@color/cardview_dark_background"
+        android:textColorHint="#CCCCCC"
+        app:layout_constraintEnd_toEndOf="@+id/editTextEmail"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/editTextEmail"
+        app:layout_constraintTop_toBottomOf="@+id/editTextEmail" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Continue with"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/editTextPassword"
+        app:layout_constraintHorizontal_bias="0.459"
+        app:layout_constraintStart_toStartOf="@+id/editTextPassword"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="77dp"
+        android:layout_height="77dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/ic_fb"
+        android:text=""
+        app:layout_constraintEnd_toStartOf="@+id/button2"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="77dp"
+        android:layout_height="77dp"
+        android:layout_marginTop="23dp"
+        android:background="@drawable/ic_gg"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="@+id/editTextPassword"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <Button
+        android:id="@+id/button23"
+        android:layout_width="77dp"
+        android:layout_height="77dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/ic_git"
+        android:text=""
+        app:layout_constraintEnd_toStartOf="@+id/button3"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="137dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="21dp"
+        android:background="@drawable/edittextshape"
+        android:text="Login"
+        app:layout_constraintEnd_toEndOf="@+id/donthaveButton"
+        app:layout_constraintStart_toStartOf="@+id/donthaveButton"
+        app:layout_constraintTop_toBottomOf="@+id/button3" />
+
+    <TextView
+        android:id="@+id/donthaveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="24dp"
+        android:fontFamily="serif"
+        android:text="Bạn chưa có tài khoản?"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginButton" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

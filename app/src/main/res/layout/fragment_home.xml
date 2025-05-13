@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="0dp"
+    tools:context=".Fragment.HomeFragment">
+
+
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchView"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_margin="12dp"
+        android:layout_marginTop="56dp"
+        android:background="@drawable/editsearch"
+        android:elevation="8dp"
+        android:iconifiedByDefault="false"
+        android:queryHint="Bạn muốn tìm kiếm gì?"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.207"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.8" />
+
+    <ImageView
+        android:id="@+id/notificationButton"
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="4dp"
+        android:elevation="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.15"
+        app:srcCompat="@drawable/bell" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/PopularRecycleView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:paddingBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView"
+        app:layout_constraintVertical_bias="1.0"
+        tools:listitem="@layout/popular_item" />
+
+    <com.denzcoskun.imageslider.ImageSlider
+        android:id="@+id/image_slider"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:elevation="6dp"
+        app:iss_auto_cycle="true"
+        app:iss_delay="2000"
+        app:iss_no_dots="true"
+        app:iss_period="2000"
+        app:iss_text_align="CENTER"
+        app:layout_constraintHeight_percent="0.45"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="136dp">
+
+    </com.denzcoskun.imageslider.ImageSlider>
+
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:elevation="3dp"
+        app:cardCornerRadius="15dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/image_slider">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp">
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Best Seller"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/viewAllMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/textviewshape"
+                android:gravity="center"
+                android:padding="6dp"
+                android:text="Chọn Menu"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
