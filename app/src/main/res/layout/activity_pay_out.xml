@@ -16,14 +16,14 @@
         android:orientation="vertical">
 
         <ImageButton
-            android:id="@+id/button5"
+            android:id="@+id/backButton"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="24dp"
             android:background="@android:color/transparent"
             android:scaleType="centerCrop"
-            android:src="@drawable/arrow_left"
+            android:src="@drawable/circle_arrow_left_solid"
             android:text="Button" />
 
         <TextView
@@ -31,9 +31,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Edit"
-            android:textColor="#000000"
-            android:textSize="20sp"
+            android:fontFamily="@font/comicrelief_bold"
+            android:text="Đặt hàng"
+            android:textColor="#006600"
+            android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/button5" />

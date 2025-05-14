@@ -53,7 +53,6 @@ class MenuAdapter(
             }
 
             addToCartButton.setOnClickListener {
-                // Gửi request về server
                 val client = OkHttpClient()
                 val formBody = FormBody.Builder()
                     .add("food_name", item.food_name)

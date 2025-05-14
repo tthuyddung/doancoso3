@@ -33,14 +33,15 @@
 
             <TextView
                 android:id="@+id/menuFoodname"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="185dp"
+                android:layout_height="24dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:text="Food Name"
-                android:textColor="@color/black"
+                android:textColor="#336600"
                 android:textSize="16sp"
                 android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/buttonAddToCart"
                 app:layout_constraintStart_toEndOf="@+id/imageMenu"
                 app:layout_constraintTop_toTopOf="parent" />
 

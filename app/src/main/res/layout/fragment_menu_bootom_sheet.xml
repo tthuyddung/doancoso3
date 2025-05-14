@@ -16,16 +16,17 @@
         android:layout_marginTop="6dp"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
-        android:src="@drawable/arrow_left" />
+        android:src="@drawable/circle_arrow_left_solid" />
 
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="8dp"
-        android:fontFamily="serif"
+        android:fontFamily="@font/comicrelief_bold"
         android:gravity="center"
         android:text="Menu"
+        android:textColor="#336600"
         android:textSize="24dp" />
 
     <androidx.recyclerview.widget.RecyclerView

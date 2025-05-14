@@ -16,9 +16,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:fontFamily="serif"
+            android:fontFamily="@font/comicrelief_bold"
             android:text="Thông báo"
-            android:textSize="20sp"
+            android:textSize="24sp"
+            android:textColor="#336600"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

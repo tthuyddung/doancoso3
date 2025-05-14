@@ -9,10 +9,10 @@ import com.example.foodapp.databinding.CartItemBinding
 import com.bumptech.glide.Glide
 
 class CartAdapter(
-    private val cartItems: MutableList<String>,  // Tên món ăn
-    private val itemPrices: MutableList<String>,  // Giá món ăn
-    private val cartImages: MutableList<String>,  // Hình ảnh món ăn
-    private val itemQuantities: MutableList<Int>   // Số lượng món ăn
+    private val cartItems: MutableList<String>,
+    private val itemPrices: MutableList<String>,
+    private val cartImages: MutableList<String>,
+    private val itemQuantities: MutableList<Int>
 ) : RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartViewHolder {
@@ -38,21 +38,23 @@ class CartAdapter(
                 cartQuantity.text = quantity.toString()
 
                 val imageUrl = cartImages[position]
+                val context = binding.root.context
+
                 if (imageUrl.startsWith("http")) {
-                    Glide.with(cartImage.context)
+                    Glide.with(context)
                         .load(imageUrl)
                         .into(cartImage)
                 } else if (imageUrl.startsWith("android.resource://")) {
-                    val resId = imageUrl.substringAfter("android.resource://com.example.foodapp/drawable/").toIntOrNull()
-                    if (resId != null) {
-                        cartImage.setImageResource(resId)
-                    }
+                    val imageName = imageUrl.substringAfterLast("/")
+                    val resId = context.resources.getIdentifier(imageName, "drawable", context.packageName)
+                    cartImage.setImageResource(resId)
                 } else {
                     val resId = imageUrl.toIntOrNull()
                     if (resId != null) {
                         cartImage.setImageResource(resId)
                     }
                 }
+
 
                 cartMinus.setOnClickListener {
                     decreaseQuantity(position)
@@ -82,7 +84,7 @@ class CartAdapter(
         private fun updateQuantityOnServer(foodName: String, quantity: Int) {
             val url = "http://192.168.1.8/get_food/update_quantity.php"
             val request = object : StringRequest(Method.POST, url,
-                { },  // Xử lý response nếu cần
+                { },
                 { }) {
                 override fun getParams(): MutableMap<String, String> {
                     return hashMapOf(

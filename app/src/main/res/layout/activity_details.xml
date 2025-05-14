@@ -16,16 +16,17 @@
         android:background="@android:color/transparent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/arrow_left" />
+        app:srcCompat="@drawable/circle_arrow_left_solid" />
 
     <TextView
         android:id="@+id/detailsFoodName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:fontFamily="@font/comicrelief_bold"
         android:text="FoodName"
-        android:textColor="#020202"
-        android:textSize="20sp"
+        android:textColor="#336600"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/backButton" />
@@ -56,8 +57,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/comicrelief_bold"
         android:text="Mô tả ngắn"
-        android:textColor="#020202"
+        android:textColor="#336600"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView4" />
@@ -79,8 +81,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:fontFamily="@font/comicrelief_bold"
         android:text="Nguyên liệu"
-        android:textColor="#020202"
+        android:textColor="#336600"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/DescriptionTextView"
         app:layout_constraintTop_toBottomOf="@+id/DescriptionTextView" />
@@ -97,19 +100,6 @@
         app:layout_constraintTop_toBottomOf="@+id/textView22"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/edittextshape"
-        android:text="Thêm vào giỏ hàng"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/IngradientsTextView" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -25,9 +25,9 @@
         android:layout_height="39dp"
         android:layout_marginTop="16dp"
 
-        android:text="Đăng kí"
-        android:textColor="@color/colorPrimary"
         android:gravity="center"
+        android:text="Đăng kí"
+        android:textColor="#336600"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,7 +36,7 @@
 
     <EditText
         android:id="@+id/editTextEmail"
-        android:layout_width="243dp"
+        android:layout_width="290dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/edittext_background"
@@ -52,7 +52,7 @@
 
     <EditText
         android:id="@+id/editTextTextEmailAddress2"
-        android:layout_width="243dp"
+        android:layout_width="290dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/edittext_background"
@@ -68,7 +68,7 @@
 
     <EditText
         android:id="@+id/editTextTextPassword"
-        android:layout_width="243dp"
+        android:layout_width="290dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/edittext_background"
@@ -88,7 +88,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Continue with"
-        android:textColor="#000000"
+        android:textColor="#336600"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="@+id/editTextTextPassword"
         app:layout_constraintHorizontal_bias="0.618"
@@ -145,15 +145,17 @@
         android:id="@+id/alreadyhaveButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:layout_marginBottom="40dp"
         android:fontFamily="serif"
         android:text="Bạn đã có tài khoản?"
         android:textColor="#000000"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/loginButton"
         app:layout_constraintHorizontal_bias="0.539"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="@+id/loginButton"
+        app:layout_constraintTop_toBottomOf="@+id/loginButton" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

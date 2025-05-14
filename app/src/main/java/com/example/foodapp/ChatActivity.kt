@@ -11,15 +11,14 @@ import java.io.IOException
 
 class ChatActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityChatBinding  // Khai báo đối tượng binding
+    private lateinit var binding: ActivityChatBinding
     private val client = OkHttpClient()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityChatBinding.inflate(layoutInflater)  // Khởi tạo binding
-        setContentView(binding.root)  // Đặt content view là root của binding
+        binding = ActivityChatBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        // Sử dụng binding để tham chiếu các view
         binding.notificationButton.setOnClickListener {
             val intent = Intent(this, ReceivedActivity::class.java)
             startActivity(intent)
@@ -45,7 +44,7 @@ class ChatActivity : AppCompatActivity() {
             .build()
 
         val request = Request.Builder()
-            .url("http://192.168.1.8/get_food/send_message.php") // ⚠️ Đổi IP theo XAMPP
+            .url("http://192.168.1.8/get_food/send_message.php")
             .post(formBody)
             .build()
 
@@ -70,8 +69,7 @@ class ChatActivity : AppCompatActivity() {
         })
     }
 
-    // Ghi đè phương thức onBackPressed để khi nhấn back sẽ thoát activity hiện tại
     override fun onBackPressed() {
-        super.onBackPressed() // Gọi super để thực hiện hành động mặc định (quay lại activity trước đó)
+        super.onBackPressed()
     }
 }

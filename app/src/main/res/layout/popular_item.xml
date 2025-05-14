@@ -35,25 +35,16 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <!-- Tên món ăn -->
-
-            <!-- Giá món ăn -->
-
-            <!-- Nút Add to cart -->
-
-            <!-- Giá món ăn -->
-
-            <!-- Giá món ăn -->
-
-
             <TextView
                 android:id="@+id/foodNamePopular"
-                android:layout_width="105dp"
+                android:layout_width="186dp"
                 android:layout_height="30dp"
                 android:layout_marginStart="8dp"
                 android:text="Food Name"
+                android:textColor="#336600"
                 android:textSize="16sp"
                 android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/buttonAddToCart"
                 app:layout_constraintStart_toEndOf="@+id/imageView2"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -62,10 +53,11 @@
                 android:layout_width="24dp"
                 android:layout_height="22dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="4dp"
                 android:text="5.50"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="@+id/foodNamePopular"
+                app:layout_constraintHorizontal_bias="0.063"
                 app:layout_constraintStart_toEndOf="@+id/imageView2"
                 app:layout_constraintTop_toBottomOf="@+id/foodNamePopular" />
 

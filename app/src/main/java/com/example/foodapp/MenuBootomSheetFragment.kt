@@ -37,12 +37,12 @@ class MenuBootomSheetFragment : BottomSheetDialogFragment() {
 
     private fun fetchMenuItems() {
         val fallbackItems = listOf(
-            MenuItem("Burger", "4.50", "android.resource://com.example.foodapp/drawable/menu1"),
-            MenuItem("Sandwich", "7.80", "android.resource://com.example.foodapp/drawable/menu2"),
-            MenuItem("Momo", "5.60", "android.resource://com.example.foodapp/drawable/menu3"),
-            MenuItem("Item", "4.50", "android.resource://com.example.foodapp/drawable/menu4"),
-            MenuItem("Fried Chicken", "9.10", "android.resource://com.example.foodapp/drawable/menu5"),
-            MenuItem("French Fries", "3.40", "android.resource://com.example.foodapp/drawable/menu6"),
+            MenuItem("Phở Bò", "4.50", "android.resource://com.example.foodapp/drawable/menu1"),
+            MenuItem("Phở Hoàng Gia", "7.80", "android.resource://com.example.foodapp/drawable/menu2"),
+            MenuItem("Phở Đặc Biệt không giá", "5.60", "android.resource://com.example.foodapp/drawable/menu3"),
+            MenuItem("Phở Gà", "4.50", "android.resource://com.example.foodapp/drawable/menu4"),
+            MenuItem("Phở Đặt Biệt", "9.10", "android.resource://com.example.foodapp/drawable/menu5"),
+            MenuItem("Phở Thêm", "3.40", "android.resource://com.example.foodapp/drawable/menu6"),
         )
 
         val client = OkHttpClient()

@@ -22,8 +22,8 @@
         android:layout_marginBottom="272dp"
         android:fontFamily="serif"
         android:text="Mang vui vẻ mỗi ngày"
+        android:textColor="#336600"
         android:textSize="30dp"
-        android:textColor="@color/colorPrimary"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

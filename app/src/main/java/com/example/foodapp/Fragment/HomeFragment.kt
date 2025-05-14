@@ -15,7 +15,6 @@ import com.example.foodapp.R
 import com.example.foodapp.adapter.PopularAdapter
 import com.example.foodapp.databinding.FragmentHomeBinding
 
-
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
 
@@ -27,15 +26,14 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         binding = FragmentHomeBinding.inflate(inflater, container, false)
 
-        binding.viewAllMenu.setOnClickListener{
-            val bootomSheetDialog = MenuBootomSheetFragment()
-            bootomSheetDialog.show(parentFragmentManager, "Test")
+        binding.viewAllMenu.setOnClickListener {
+            val bottomSheetDialog = MenuBootomSheetFragment()
+            bottomSheetDialog.show(parentFragmentManager, "MenuBottomSheet")
         }
-        return binding.root
 
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -46,34 +44,33 @@ class HomeFragment : Fragment() {
         imageList.add(SlideModel(R.drawable.banner2, ScaleTypes.CENTER_INSIDE))
         imageList.add(SlideModel(R.drawable.banner3, ScaleTypes.CENTER_INSIDE))
 
-        val imageSlider = binding.imageSlider
-        imageSlider.setImageList(imageList)
-        imageSlider.setImageList(imageList, ScaleTypes.FIT)
+        binding.imageSlider.setImageList(imageList, ScaleTypes.FIT)
 
-        imageSlider.setItemClickListener(object :ItemClickListener{
+        binding.imageSlider.setItemClickListener(object : ItemClickListener {
             override fun doubleClick(position: Int) {
-                TODO("Not yet implemented")
             }
 
-            override fun onItemSelected(position: Int){
-                val itemPosition = imageList[position]
-                val itemMessage = "Chọn Image $position"
+            override fun onItemSelected(position: Int) {
+                val itemMessage = "Selected Image at position $position"
                 Toast.makeText(requireContext(), itemMessage, Toast.LENGTH_SHORT).show()
             }
         })
-        val foodName = listOf("Burger", "Sandwich", "momo", "item")
-        val Price = listOf("4.60", "5.70", "5.60", "5.50")
-        val popularImages =
-            listOf(R.drawable.menu1, R.drawable.menu2, R.drawable.menu3, R.drawable.menu4)
-        val adapter = PopularAdapter(foodName, Price, popularImages, requireContext())
+
+        val foodNames = listOf("Phở Bò", "Phở Hoàng Gia", "Phở Đặc Biệt", "Phở Gà")
+        val prices = listOf("4.60", "5.70", "5.60", "5.50")
+        val popularImages = listOf(
+            R.drawable.menu1,
+            R.drawable.menu2,
+            R.drawable.menu3,
+            R.drawable.menu4
+        )
+
+        val adapter = PopularAdapter(foodNames, prices, popularImages, requireContext())
+
         binding.PopularRecycleView.layoutManager = LinearLayoutManager(requireContext())
         binding.PopularRecycleView.adapter = adapter
-
-
-
     }
 
     companion object {
-
     }
 }

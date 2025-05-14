@@ -6,47 +6,49 @@
     android:background="@color/white"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/framegmentContainerView"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:navGraph="@navigation/nav_graph"
+        android:layout_marginTop="0dp"
         app:defaultNavHost="true"
-        app:layout_constraintTop_toBottomOf="@id/marqueeText"
         app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/titleText"
+        app:layout_constraintVertical_bias="0.0"
+        app:navGraph="@navigation/nav_graph" />
+
+    <TextView
+        android:id="@+id/titleText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="0dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="8dp"
+        android:text="PHO HOUSE wellcome !"
+        android:textColor="#336600"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleText"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <ImageView
         android:id="@+id/notificationButton"
-        android:layout_width="35dp"
-        android:layout_height="25dp"
-        android:layout_marginEnd="28dp"
-        app:layout_constraintBottom_toBottomOf="@+id/marqueeText"
+        android:layout_width="38dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/marqueeText"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/bell" />
-
-    <TextView
-        android:id="@+id/marqueeText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:singleLine="true"
-        android:ellipsize="marquee"
-        android:marqueeRepeatLimit="marquee_forever"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:scrollHorizontally="true"
-        android:text="🍜 Ưu đãi đặc biệt hôm nay: Mua 1 tặng 1 tất cả món Phở! 🍜"
-        android:textSize="16sp"
-        android:textColor="#FF5722"
-        android:background="#FFFDE7"
-        android:padding="8dp"
-        android:textStyle="bold" />
-
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.2"
+        app:srcCompat="@drawable/bell_regular" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
@@ -54,7 +56,8 @@
         android:layout_height="90dp"
         app:menu="@menu/menu"
         app:labelVisibilityMode="labeled"
-        app:itemIconTint="@null"
+        app:itemIconTint="@color/colorPrimary"
+        app:itemTextColor="#336600"
         app:elevation="10dp"
         android:background="@drawable/profileedittext"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -35,7 +35,7 @@ class ProfileFragment : Fragment() {
         btnSave = view.findViewById(R.id.buttonSave)
 
         val sharedPreferences = requireContext().getSharedPreferences("UserPrefs", Context.MODE_PRIVATE)
-        userId = sharedPreferences.getInt("userId", -1) // Lấy userId từ SharedPreferences
+        userId = sharedPreferences.getInt("userId", -1)
 
         Log.d("ProfileFragment", "Loaded userId from SharedPreferences: $userId")
 

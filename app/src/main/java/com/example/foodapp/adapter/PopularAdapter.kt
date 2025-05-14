@@ -1,5 +1,3 @@
-
-
 package com.example.foodapp.adapter
 
 import android.content.Context
@@ -12,35 +10,37 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.foodapp.DetailsActivity
 import com.example.foodapp.PayOutActivity
+import com.example.foodapp.R
 import com.example.foodapp.databinding.PopularItemBinding
 import com.example.foodapp.model.MenuItem
 import okhttp3.*
 import java.io.IOException
 
 class PopularAdapter(
-    private val items: List<String>,
-    private val prices: List<String>,
-    private val image: List<Int>,
-    private val requireContext: Context
+    private val items: List<String>,        // Danh sách tên món ăn
+    private val prices: List<String>,       // Danh sách giá món ăn
+    private val imageResIds: List<Int>,     // Danh sách resource ID của ảnh
+    private val context: Context            // Sử dụng context thay vì requireContext()
 ) : RecyclerView.Adapter<PopularAdapter.PopularViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PopularViewHolder {
-        return PopularViewHolder(PopularItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+        val binding = PopularItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return PopularViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: PopularViewHolder, position: Int) {
         val item = items[position]
-        val images = image[position]
         val price = prices[position]
+        val imageResId = imageResIds[position]  // Dùng resource ID thay vì tên ảnh
 
-        holder.bind(item, price, images)
+        holder.bind(item, price, imageResId)  // Truyền resource ID vào
 
         holder.itemView.setOnClickListener {
-            val intent = Intent(requireContext, DetailsActivity::class.java)
+            val intent = Intent(context, DetailsActivity::class.java)
             intent.putExtra("MenuItemName", item)
-            intent.putExtra("MenuItemImage", images)
+            intent.putExtra("MenuItemImage", imageResId) // Truyền resource ID ảnh
             intent.putExtra("MenuItemPrice", price)
-            requireContext.startActivity(intent)
+            context.startActivity(intent)
         }
 
         holder.binding.buttonAddToCart.setOnClickListener {
@@ -48,7 +48,7 @@ class PopularAdapter(
             val formBody = FormBody.Builder()
                 .add("food_name", item)
                 .add("price", price)
-                .add("image_url", images.toString())
+                .add("image_url", imageResId.toString())  // Cần chuyển thành chuỗi nếu cần truyền qua mạng
                 .build()
 
             val request = Request.Builder()
@@ -64,7 +64,7 @@ class PopularAdapter(
                 override fun onResponse(call: Call, response: Response) {
                     if (response.isSuccessful) {
                         holder.itemView.post {
-                            Toast.makeText(requireContext, "Đã thêm vào giỏ hàng", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(context, "Đã thêm vào giỏ hàng", Toast.LENGTH_SHORT).show()
                         }
                     }
                 }
@@ -72,22 +72,22 @@ class PopularAdapter(
         }
 
         holder.binding.payout?.setOnClickListener {
-            val intent = Intent(requireContext, PayOutActivity::class.java).apply {
+            val intent = Intent(context, PayOutActivity::class.java).apply {
                 putExtra("MenuItemName", item)
                 putExtra("MenuItemPrice", price)
                 putExtra("MenuItemQuantity", 1)
             }
-            requireContext.startActivity(intent)
+            context.startActivity(intent)
         }
     }
 
     override fun getItemCount(): Int = items.size
 
     class PopularViewHolder(val binding: PopularItemBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: String, price: String, images: Int) {
+        fun bind(item: String, price: String, imageResId: Int) {
             binding.foodNamePopular.text = item
             binding.pricePopular.text = price
-            binding.imageView2.setImageResource(images)
+            binding.imageView2.setImageResource(imageResId)  // Chỉ cần truyền ID tài nguyên ảnh
         }
     }
 }

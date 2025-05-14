@@ -9,8 +9,6 @@ class TestFragmentActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test_fragment)
 
-
-        // Gắn HomeFragment vào FrameLayout
         supportFragmentManager.beginTransaction()
             .replace(R.id.testFragmentContainer, HomeFragment())
             .commit()
