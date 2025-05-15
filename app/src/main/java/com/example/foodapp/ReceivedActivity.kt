@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.foodapp.R
 import com.example.foodapp.databinding.ActivityReceivedBinding
+import com.example.foodapp.utils.Constants
 import okhttp3.*
 import org.json.JSONArray
 import java.io.IOException
@@ -37,7 +38,7 @@ class ReceivedActivity : AppCompatActivity() {
 
     private fun fetchLatestMessageForUser(receiver: String, senderText: TextView, receiverText: TextView, messageText: TextView) {
         val request = Request.Builder()
-            .url("http://192.168.1.18/get_food/get_messages.php")
+            .url("${Constants.BASE_URL}get_messages.php")
             .build()
 
         client.newCall(request).enqueue(object : Callback {

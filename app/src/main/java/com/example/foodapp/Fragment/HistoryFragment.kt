@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.foodapp.adapter.BuyAgainAdapter
 import com.example.foodapp.databinding.FragmentHistoryBinding
 import com.example.foodapp.model.Order
+import com.example.foodapp.utils.Constants
 import retrofit2.*
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
@@ -34,7 +35,7 @@ class HistoryFragment : Fragment() {
 
     private fun getDeliveredOrders() {
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://192.168.1.18/get_food/")
+            .baseUrl(Constants.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 

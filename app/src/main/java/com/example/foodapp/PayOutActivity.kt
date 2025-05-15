@@ -8,6 +8,8 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import android.util.Log
 import com.example.foodapp.databinding.ActivityPayOutBinding
+import com.example.foodapp.utils.Constants
+
 
 class PayOutActivity : AppCompatActivity() {
 
@@ -72,8 +74,7 @@ class PayOutActivity : AppCompatActivity() {
     }
 
     private fun submitOrder() {
-        val url = "http://192.168.1.18/get_food/insert_order.php"
-
+        val url = "${Constants.BASE_URL}insert_order.php"
         val request = object : StringRequest(Request.Method.POST, url,
             { response ->
                 if (response.trim() == "success") {

@@ -15,6 +15,7 @@ import com.example.foodapp.PayActivity
 import com.example.foodapp.PayOutActivity
 import com.example.foodapp.R
 import com.example.foodapp.model.Order
+import com.example.foodapp.utils.Constants
 
 class BuyAgainAdapter(private val orderList: List<Order>) :
     RecyclerView.Adapter<BuyAgainAdapter.OrderViewHolder>() {
@@ -67,7 +68,7 @@ class BuyAgainAdapter(private val orderList: List<Order>) :
         holder.foodPrice.text = "${order.price}"
 
         Glide.with(holder.itemView.context)
-            .load("http://192.168.1.18/get_food/" + order.image_path)
+            .load(Constants.BASE_URL + order.image_path)
             .into(holder.foodImage)
 
         Log.d("BIND_ORDER", "Hiển thị đơn hàng: $firstFoodName, ${order.total_price}, ${order.image_path}")

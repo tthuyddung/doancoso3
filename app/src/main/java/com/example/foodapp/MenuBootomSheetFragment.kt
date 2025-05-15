@@ -13,6 +13,7 @@ import com.example.foodapp.model.MenuItem
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import okhttp3.*
 import android.util.Log
+import com.example.foodapp.utils.Constants
 import org.json.JSONObject
 import java.io.IOException
 
@@ -47,7 +48,7 @@ class MenuBootomSheetFragment : BottomSheetDialogFragment() {
 
         val client = OkHttpClient()
         val request = Request.Builder()
-            .url("http://192.168.1.18/get_food/get_all_items.php")
+            .url("${Constants.BASE_URL}get_all_items.php")
             .build()
 
         client.newCall(request).enqueue(object : Callback {
@@ -109,6 +110,6 @@ class MenuBootomSheetFragment : BottomSheetDialogFragment() {
 
 
     companion object {
-        const val BASE_URL = "http://192.168.1.8/get_food/"
+        const val BASE_URL = Constants.BASE_URL
     }
 }

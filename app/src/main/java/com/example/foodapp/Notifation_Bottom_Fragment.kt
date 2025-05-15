@@ -14,6 +14,7 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.foodapp.adapter.NotificationAdapter
 import com.example.foodapp.databinding.FragmentNotifationBottomBinding
+import com.example.foodapp.utils.Constants
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class Notifation_Bottom_Fragment : BottomSheetDialogFragment() {
@@ -97,7 +98,7 @@ private fun loadOrdersByState(state: String) {
         return
     }
 
-    val url = "http://192.168.1.18/get_food/get_orders_by_state.php?state=$state&id_user=$userId"
+    val url = "${Constants.BASE_URL}get_orders_by_state.php?state=$state&id_user=$userId"
     val requestQueue = Volley.newRequestQueue(requireContext())
 
     val jsonArrayRequest = JsonArrayRequest(Request.Method.GET, url, null,
@@ -126,7 +127,7 @@ private fun loadOrdersByState(state: String) {
 
 
     private fun updateOrderState(orderId: Int, newState: String) {
-        val url = "http://192.168.1.18/get_food/update_order_state.php"
+        val url = "${Constants.BASE_URL}update_order_state.php"
         val requestQueue = Volley.newRequestQueue(requireContext())
 
         val postData = object : StringRequest(Method.POST, url,

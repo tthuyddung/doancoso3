@@ -10,6 +10,7 @@ import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.example.foodapp.databinding.ActivityPayBinding
+import com.example.foodapp.utils.Constants
 import org.json.JSONObject
 
 class PayActivity : AppCompatActivity() {
@@ -74,7 +75,7 @@ class PayActivity : AppCompatActivity() {
 
         Log.d("PayActivity", "Sending JSON: $json")
 
-        val url = "http://192.168.1.18/get_food/order.php"
+        val url = "${Constants.BASE_URL}order.php"
         val request = JsonObjectRequest(Request.Method.POST, url, json,
             { response ->
                 Log.d("PayActivity", "Server response: $response")

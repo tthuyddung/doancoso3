@@ -16,6 +16,7 @@ import com.example.foodapp.PayOutActivity
 import com.example.foodapp.R
 import com.example.foodapp.adapter.CartAdapter
 import com.example.foodapp.databinding.FragmentCardBinding
+import com.example.foodapp.utils.Constants
 import org.json.JSONObject
 
 class CardFragment : Fragment() {
@@ -35,8 +36,7 @@ class CardFragment : Fragment() {
             return binding.root
         }
 
-        val url = "http://192.168.1.18/get_food/get_cart.php?id_user=$idUser"
-
+        val url = "${Constants.BASE_URL}get_cart.php?id_user=$idUser"
 
 
         val request = StringRequest(Request.Method.GET, url,

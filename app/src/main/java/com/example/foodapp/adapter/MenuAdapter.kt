@@ -19,6 +19,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.foodapp.PayActivity
 import com.example.foodapp.PayOutActivity
 import com.example.foodapp.SignActivity
+import com.example.foodapp.utils.Constants
 import okhttp3.Call
 import okhttp3.Callback
 import okhttp3.FormBody
@@ -105,7 +106,7 @@ class MenuAdapter(
                     .build()
 
                 val request = Request.Builder()
-                    .url("http://192.168.1.18/get_food/add_to_cart.php")
+                    .url(Constants.BASE_URL + "add_to_cart.php")
                     .post(formBody)
                     .build()
 

@@ -16,6 +16,8 @@ import com.example.foodapp.PayOutActivity
 import com.example.foodapp.databinding.PopularItemBinding
 import okhttp3.*
 import java.io.IOException
+import com.example.foodapp.utils.Constants
+
 
 class PopularAdapter(
     private val items: List<String>,
@@ -62,7 +64,8 @@ class PopularAdapter(
                 .build()
 
             val request = Request.Builder()
-                .url("http://192.168.1.18/get_food/add_to_cart.php")
+                .url(Constants.BASE_URL + "add_to_cart.php")
+
                 .post(formBody)
                 .build()
 

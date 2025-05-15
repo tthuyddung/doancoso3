@@ -9,6 +9,7 @@ import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.example.foodapp.databinding.ActivityLoginBinding
+import com.example.foodapp.utils.Constants
 import org.json.JSONObject
 
 class LoginActivity : AppCompatActivity() {
@@ -37,7 +38,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun loginUser(email: String, password: String) {
-        val url = "http://192.168.1.18/get_food/login_user.php"
+        val url = "${Constants.BASE_URL}login_user.php"
         val requestQueue = Volley.newRequestQueue(this)
         val jsonObject = JSONObject().apply {
             put("email", email)

@@ -8,6 +8,7 @@ import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.example.foodapp.databinding.ActivitySignBinding
+import com.example.foodapp.utils.Constants
 import org.json.JSONObject
 
 class SignActivity : AppCompatActivity() {
@@ -34,7 +35,7 @@ class SignActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            val url = "http://192.168.1.18//get_food/register.php"
+            val url = "${Constants.BASE_URL}register.php"
 
             val jsonObject = JSONObject().apply {
                 put("name", name)

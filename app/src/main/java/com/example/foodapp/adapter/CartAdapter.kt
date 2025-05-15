@@ -8,6 +8,7 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.foodapp.databinding.CartItemBinding
 import com.bumptech.glide.Glide
+import com.example.foodapp.utils.Constants
 
 class CartAdapter(
     private val cartItems: MutableList<String>,
@@ -97,7 +98,7 @@ class CartAdapter(
 //            Volley.newRequestQueue(binding.root.context).add(request)
 //        }
         private fun updateQuantityOnServer(foodName: String, quantity: Int) {
-            val url = "http://192.168.1.18/get_food/update_quantity.php"
+            val url = Constants.BASE_URL + "update_quantity.php"
 
             val sharedPref = binding.root.context.getSharedPreferences("UserPrefs", AppCompatActivity.MODE_PRIVATE)
             val idUser = sharedPref.getInt("userId", -1)
@@ -158,8 +159,7 @@ class CartAdapter(
 
         private fun deleteItem(position: Int) {
             val foodName = cartItems[position]
-            val url = "http://192.168.1.18/get_food/delete_cart_item.php"
-
+            val url = Constants.BASE_URL + "delete_cart_item.php"
             val sharedPref = binding.root.context.getSharedPreferences("UserPrefs", AppCompatActivity.MODE_PRIVATE)
             val idUser = sharedPref.getInt("userId", -1)
 

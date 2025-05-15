@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.adminfoodapp.ReceivedActivity
 import com.example.foodapp.databinding.ActivityChatBinding
+import com.example.foodapp.utils.Constants
 import okhttp3.*
 import java.io.IOException
 
@@ -47,7 +48,7 @@ class ChatActivity : AppCompatActivity() {
             .build()
 
         val request = Request.Builder()
-            .url("http://192.168.1.18/get_food/send_message.php")
+            .url("${Constants.BASE_URL}send_message.php")
             .post(formBody)
             .build()
 

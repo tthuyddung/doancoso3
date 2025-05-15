@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.foodapp.databinding.FragmentCongratsBottomSheetBinding
+import com.example.foodapp.utils.Constants
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class CongratsBottomSheet : BottomSheetDialogFragment() {
@@ -42,7 +43,7 @@ class CongratsBottomSheet : BottomSheetDialogFragment() {
         val idUser = sharedPref.getInt("userId", -1)
 
         if (idUser != -1) {
-            val url = "http://192.168.1.18/get_food/clear_cart.php"
+            val url = "${Constants.BASE_URL}clear_cart.php"
             val request = object : StringRequest(Method.POST, url,
                 { response ->
                     Log.d("ClearCart", "Đã xóa giỏ hàng: $response")

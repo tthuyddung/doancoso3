@@ -22,6 +22,8 @@ import okhttp3.Request
 import okhttp3.Response
 import org.json.JSONObject
 import java.io.IOException
+import com.example.foodapp.utils.Constants
+
 
 
 class SearchFragment : Fragment() {
@@ -60,7 +62,7 @@ class SearchFragment : Fragment() {
 
         val client = OkHttpClient()
         val request = Request.Builder() // This will now resolve correctly
-            .url("http://192.168.1.18/get_food/get_all_items.php")
+            .url("${Constants.BASE_URL}get_all_items.php")
             .build()
 
         client.newCall(request).enqueue(object : Callback {
