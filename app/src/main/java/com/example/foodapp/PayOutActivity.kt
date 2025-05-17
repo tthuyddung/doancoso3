@@ -56,13 +56,25 @@ class PayOutActivity : AppCompatActivity() {
                 totalPrice += price * quantity
             }
 
-            binding.txtTotalPrice.setText("Tổng tiền: $totalPrice VND")
+            binding.txtTotalPrice.setText("Tổng tiền: %.2f $".format(totalPrice))
+
+            // Cho phép đặt hàng nếu có món
+            binding.placemyorder.isEnabled = true
+            binding.placemyorder.setOnClickListener {
+                submitOrder()
+            }
         } else {
             binding.txtFoodName.setText("Không có món nào")
             binding.txtPrice.setText("0.0")
             binding.txtQuantity.setText("0")
-            binding.txtTotalPrice.setText("Tổng tiền: 0.0 VND")
+            binding.txtTotalPrice.setText("Tổng tiền: 0.0 $")
+
+            // Không cho đặt hàng nếu giỏ rỗng
+            binding.placemyorder.isEnabled = false
+            binding.placemyorder.alpha = 0.5f // làm mờ
+
         }
+
 
         binding.backButton.setOnClickListener {
             onBackPressed()
@@ -119,6 +131,7 @@ class PayOutActivity : AppCompatActivity() {
 
                 return params
             }
+
         }
 
         val queue = Volley.newRequestQueue(this)
@@ -132,6 +145,6 @@ class PayOutActivity : AppCompatActivity() {
         binding.txtFoodName.setText("Không có món nào")
         binding.txtPrice.setText("0.0")
         binding.txtQuantity.setText("0")
-        binding.txtTotalPrice.setText("Tổng tiền: 0.0 VND")
+        binding.txtTotalPrice.setText("Tổng tiền: 0.0 $")
     }
 }

@@ -13,7 +13,7 @@
         android:fontFamily="serif"
         android:text="Pho House"
         android:textColor="@color/colorPrimary"
-        android:textSize="30dp"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,11 +35,14 @@
         app:layout_constraintVertical_bias="0.062" />
 
     <ImageView
-        android:layout_width="466dp"
-        android:layout_height="403dp"
+        android:layout_width="451dp"
+        android:layout_height="367dp"
+        android:layout_marginTop="155dp"
+        android:scaleType="centerCrop"
         android:src="@drawable/logo__2_"
-        tools:layout_editor_absoluteX="-37dp"
-        tools:layout_editor_absoluteY="-23dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/next"
@@ -49,7 +52,7 @@
         android:layout_marginTop="200dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/edittextshape"
-        android:text="Tiếp"
+        android:text="Đăng kí ngay"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"

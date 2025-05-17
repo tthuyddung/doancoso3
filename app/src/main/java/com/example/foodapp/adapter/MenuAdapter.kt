@@ -55,38 +55,6 @@ class MenuAdapter(
                 context.startActivity(intent)
             }
 
-//            addToCartButton.setOnClickListener {
-//                val client = OkHttpClient()
-//                val formBody = FormBody.Builder()
-//                    .add("food_name", item.food_name)
-//                    .add("price", item.price)
-//                    .add("image_url", item.image_url)
-//                    .build()
-//
-//                val request = Request.Builder()
-//                    .url("http://192.168.1.18/get_food/add_to_cart.php")
-//                    .post(formBody)
-//                    .build()
-//
-//                client.newCall(request).enqueue(object : Callback {
-//                    override fun onFailure(call: Call, e: IOException) {
-//                        Log.e("AddToCart", "Failed: ${e.message}")
-//                    }
-//
-//                    override fun onResponse(call: Call, response: Response) {
-//                        if (response.isSuccessful) {
-//                            itemView.post {
-//                                Toast.makeText(
-//                                    context,
-//                                    "${item.food_name} đã được thêm vào giỏ hàng!",
-//                                    Toast.LENGTH_SHORT
-//                                ).show()
-//                            }
-//                        }
-//                    }
-//                })
-//            }
-
             addToCartButton.setOnClickListener {
                 val context = itemView.context
                 val sharedPref = context.getSharedPreferences("UserPrefs", AppCompatActivity.MODE_PRIVATE)

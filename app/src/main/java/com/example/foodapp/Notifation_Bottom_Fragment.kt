@@ -60,35 +60,7 @@ class Notifation_Bottom_Fragment : BottomSheetDialogFragment() {
         return binding.root
     }
 
-//    private fun loadOrdersByState(state: String) {
-//        val url = "http://192.168.1.18/get_food/get_orders_by_state.php?state=$state"
-//        val requestQueue = Volley.newRequestQueue(requireContext())
-//
-//        val jsonArrayRequest = JsonArrayRequest(Request.Method.GET, url, null,
-//            { response ->
-//                Log.d("API_RESPONSE", response.toString())
-//                val orderList = ArrayList<String>()
-//                for (i in 0 until response.length()) {
-//                    val item = response.getJSONObject(i)
-//                    val foodName = item.getString("food_name")
-//                    val count = item.getInt("count")
-//                    val price = item.optDouble("price", 0.0)
-//                    orderList.add("$foodName - $count x $price VNĐ")
-//                }
-//
-//
-//                    AlertDialog.Builder(requireContext())
-//                    .setTitle("Đơn hàng trạng thái: $state")
-//                    .setItems(orderList.toTypedArray(), null)
-//                    .setPositiveButton("OK", null)
-//                    .show()
-//            },
-//            { error ->
-//                Toast.makeText(requireContext(), "Lỗi: ${error.message}", Toast.LENGTH_SHORT).show()
-//            })
-//
-//        requestQueue.add(jsonArrayRequest)
-//    }
+
 private fun loadOrdersByState(state: String) {
     val sharedPref = requireContext().getSharedPreferences("UserPrefs", android.content.Context.MODE_PRIVATE)
     val userId = sharedPref.getInt("userId", -1)
@@ -107,9 +79,9 @@ private fun loadOrdersByState(state: String) {
             for (i in 0 until response.length()) {
                 val item = response.getJSONObject(i)
                 val foodName = item.getString("food_name")
-                val count = item.getInt("count")
-                val price = item.optDouble("price", 0.0)
-                orderList.add("$foodName - $count x $price VNĐ")
+                val count = item.getString("count")
+                val price = item.optDouble("total_price", 0.0)
+                orderList.add("$foodName - $count => $price $")
             }
 
             AlertDialog.Builder(requireContext())

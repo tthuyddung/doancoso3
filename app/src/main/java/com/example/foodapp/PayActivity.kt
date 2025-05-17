@@ -66,7 +66,7 @@ class PayActivity : AppCompatActivity() {
             put("count", count)
             put("state", "pending")
             put("phone", phone)
-            put("address", address) // ✅ dùng đúng "address"
+            put("address", address)
             put("payment_method", paymentMethod)
             put("total_price", totalPrice)
             put("id_user", idUser)

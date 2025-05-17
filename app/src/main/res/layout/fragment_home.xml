@@ -61,7 +61,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Món ăn"
+                android:text="Best Seller"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
                 android:textSize="16dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -70,10 +72,12 @@
                 android:id="@+id/viewAllMenu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/textviewshape"
                 android:gravity="center"
                 android:padding="6dp"
+                android:background="@drawable/edittext_background"
                 android:text="Chọn Menu"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
 

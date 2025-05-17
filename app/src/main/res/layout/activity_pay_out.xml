@@ -307,7 +307,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:paddingLeft="8dp"
-                android:text="Số lượng"
+                android:text="Tổng tiên"
                 android:textColor="#000000" />
 
             <EditText

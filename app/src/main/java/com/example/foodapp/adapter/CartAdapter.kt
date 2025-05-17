@@ -83,20 +83,7 @@ class CartAdapter(
             }
         }
 
-//        private fun updateQuantityOnServer(foodName: String, quantity: Int) {
-//            val url = "http://192.168.1.18/get_food/update_quantity.php"
-//            val request = object : StringRequest(Method.POST, url,
-//                { },
-//                { }) {
-//                override fun getParams(): MutableMap<String, String> {
-//                    return hashMapOf(
-//                        "food_name" to foodName,
-//                        "quantity" to quantity.toString()
-//                    )
-//                }
-//            }
-//            Volley.newRequestQueue(binding.root.context).add(request)
-//        }
+
         private fun updateQuantityOnServer(foodName: String, quantity: Int) {
             val url = Constants.BASE_URL + "update_quantity.php"
 
@@ -111,7 +98,7 @@ class CartAdapter(
                     return hashMapOf(
                         "food_name" to foodName,
                         "quantity" to quantity.toString(),
-                        "id_user" to idUser.toString() // ✅ thêm dòng này
+                        "id_user" to idUser.toString()
                     )
                 }
             }
@@ -135,27 +122,6 @@ class CartAdapter(
             }
         }
 
-//        private fun deleteItem(position: Int) {
-//            val foodName = cartItems[position]
-//            val url = "http://192.168.1.18/get_food/delete_cart_item.php"
-//
-//            val request = object : StringRequest(Method.POST, url,
-//                { },
-//                { }) {
-//                override fun getParams(): MutableMap<String, String> {
-//                    return hashMapOf("food_name" to foodName)
-//                }
-//            }
-//
-//            Volley.newRequestQueue(binding.root.context).add(request)
-//
-//            cartItems.removeAt(position)
-//            itemPrices.removeAt(position)
-//            cartImages.removeAt(position)
-//            itemQuantities.removeAt(position)
-//            notifyItemRemoved(position)
-//            notifyItemRangeChanged(position, cartItems.size)
-//        }
 
         private fun deleteItem(position: Int) {
             val foodName = cartItems[position]
@@ -170,7 +136,7 @@ class CartAdapter(
                 override fun getParams(): MutableMap<String, String> {
                     return hashMapOf(
                         "food_name" to foodName,
-                        "id_user" to idUser.toString() // ✅ thêm dòng này
+                        "id_user" to idUser.toString()
                     )
                 }
             }
